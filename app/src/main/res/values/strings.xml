@@ -36,5 +36,20 @@
     <string name="exit">Exit</string>
     <string name="qr_code">qrCode</string>
     <string name="galleryImages">Gallery</string>
+    <string name="select_class_to_view">Select Class to view</string>
+    <string name="title">Click her fo edite</string>
+    <string name="description">Description</string>
+    <string name="title2">Shear</string>
+    <string name="description2">careate qr code and shareit</string>
+    <string name="title3">Exit</string>
+    <string name="description3">click her for exit</string>
+    <string name="exam">Exam</string>
+    <string name="question">Question</string>
+    <string name="workbook">Workbook</string>
+    <string name="ranking">Ranking</string>
+    <string name="curriclum">curriclum</string>
+    <string name="attendance">Attendance</string>
+    <string name="inf">Information</string>
+    <string name="bashe">Ok</string>
 
 </resources>

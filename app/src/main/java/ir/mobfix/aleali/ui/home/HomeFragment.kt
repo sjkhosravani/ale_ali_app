@@ -6,20 +6,27 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import ir.mobfix.aleali.R
 import ir.mobfix.aleali.data.models.ModelsStudent
+import ir.mobfix.aleali.data.stored.GroupManager
 import ir.mobfix.aleali.databinding.DialogCalssBinding
 import ir.mobfix.aleali.databinding.FragmentHomeBinding
 import ir.mobfix.aleali.databinding.FragmentLoginBinding
 import ir.mobfix.aleali.ui.home.adapters.ClassAdapter
 import ir.mobfix.aleali.ui.home.adapters.StudentAdapter
 import ir.mobfix.aleali.ui.home.adapters.TeacherAdapter
+import ir.mobfix.aleali.utils.STUDENT
+import ir.mobfix.aleali.utils.TEACHER
 import ir.mobfix.aleali.utils.extensions.showSnackBar
 import ir.mobfix.aleali.utils.extensions.transparentCorners
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -42,6 +49,11 @@ class HomeFragment : Fragment() {
     @Inject
     lateinit var classAdapter : ClassAdapter
 
+    @Inject
+    lateinit var groupManager: GroupManager
+
+    private var type : String = ""
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentHomeBinding.inflate(layoutInflater)
         return binding.root
@@ -57,18 +69,33 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
+          /*  lifecycleScope.launch { type = groupManager.getType.first()!! }
             //Init Views
-            studentAdapter.setData(studentList)
-            recycler1.apply {
-                layoutManager = GridLayoutManager(requireContext(),2)
-                adapter = studentAdapter
-            }
-            teacherAdapter.setData(teacherList)
+            when(type){
+                STUDENT ->{
+                    studentAdapter.setData(studentList)
+                    recycler1.apply {
+                        layoutManager =GridLayoutManager(requireContext(),2)
+                        adapter = studentAdapter
+                    }
+                    studentAdapter.setOnItemClickListener {
 
-            studentAdapter.setOnItemClickListener {
-                showDialog()
-            }
+                    }
+                }
+                TEACHER ->{
+                    teacherAdapter.setData(studentList)
+                    recycler1.apply {
+                        layoutManager =GridLayoutManager(requireContext(),2)
+                        adapter = teacherAdapter
+                    }
+                    teacherAdapter.setOnItemClickListener {
 
+                    }
+                }
+            }*/
+            topBar.toolbarTitleTxt.text= getString(R.string.app_name)
+            topBar.toolbarBackImg.isVisible = false
+            topBar.toolbarOptionImg.isVisible =false
         }
     }
     override fun onDestroy() {

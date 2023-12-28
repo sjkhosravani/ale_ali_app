@@ -18,6 +18,7 @@ import coil.load
 import dagger.hilt.android.AndroidEntryPoint
 import ir.mobfix.aleali.R
 import ir.mobfix.aleali.data.models.login.BodyLogin
+import ir.mobfix.aleali.data.stored.GroupManager
 import ir.mobfix.aleali.data.stored.SessionManager
 import ir.mobfix.aleali.databinding.FragmentLoginBinding
 import ir.mobfix.aleali.utils.BASE_URL
@@ -39,6 +40,9 @@ class LoginFragment : Fragment() {
 
     @Inject
     lateinit var sessionManager: SessionManager
+
+    @Inject
+    lateinit var groupSessionManager: GroupManager
 
     @Inject
     lateinit var body: BodyLogin
@@ -120,7 +124,9 @@ class LoginFragment : Fragment() {
                         response.data?.let {
                             lifecycleScope.launch {
                                 sessionManager.saveToken(response.data.token)
-                                Log.d("6363", response.data.token)
+                            }
+                            lifecycleScope.launch {
+                                groupSessionManager.saveType(response.data.token)
                             }
                             findNavController().popBackStack(R.id.loginFragment, true)
                             findNavController().navigate(R.id.homeFragment)

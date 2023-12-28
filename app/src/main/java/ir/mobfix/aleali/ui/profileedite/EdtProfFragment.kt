@@ -140,6 +140,8 @@ class EdtProfFragment : BottomSheetDialogFragment() {
                                 lastEdt.setText(data.lastName)
                             if (data.birthday.isNullOrEmpty().not())
                                 birthDateEdt.setText(data.birthday)
+                            if (data.nationalCode.isNullOrEmpty().not())
+                                idEdt.setText(data.nationalCode)
 
                         }
                     }

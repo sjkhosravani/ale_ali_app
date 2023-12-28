@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/cultured"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cultured"
     tools:context=".ui.profile.ProfileFragment">
 
     <androidx.core.widget.NestedScrollView
@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -85,38 +86,41 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/infoContainer"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_marginHorizontal="@dimen/_15mdp"
                 android:layout_marginTop="@dimen/_10mdp"
+                app:layout_constraintBottom_toTopOf="@id/constraintB"
                 app:layout_constraintTop_toBottomOf="@id/nameTxt"
                 tools:targetApi="p">
+
                 <include
                     android:id="@+id/infoLay"
                     layout="@layout/profile_user_info" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                app:layout_constraintTop_toBottomOf="@id/infoContainer"
                 android:id="@+id/constraintB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_15mdp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <include android:id="@+id/container_bot"
-                    layout="@layout/profile_user_2"
-                    />
+                >
+
+                <include
+                    android:id="@+id/container_bot"
+                    layout="@layout/profile_user_2" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ProgressBar
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/infoContainer"
                 android:id="@+id/loadingP"
-                android:visibility="gone"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/infoContainer" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

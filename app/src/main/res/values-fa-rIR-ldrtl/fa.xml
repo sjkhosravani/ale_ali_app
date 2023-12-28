@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">پیشرفت</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_menu">خانه</string>
+    <string name="profile_menu">پروفایل</string>
+    <string name="version">نسخه</string>
+    <string name="help">راهنمایی</string>
+    <string name="user_name">نام کاربری</string>
+    <string name="password">رمز ورود</string>
+    <string name="submit">ورود</string>
+    <string name="register_rest_password">ثبت نام</string>
+    <string name="error">مقادیر خواسته شده را وارد کنید</string>
+    <string name="setting">عملیات</string>
+    <string name="checkYourNetwork">اتصال اینترنت خود را بررسی کنید</string>
+    <string name="birthDate">تاریخ تولد</string>
+    <string name="name_user">نام</string>
+    <string name="lastName">نام خانوادگی</string>
+    <string name="role">نقش</string>
+    <string name="code">کد ملی</string>
+    <string name="date_of_birtday">تاریخ تولد</string>
+    <string name="grade">Grade</string>
+    <string name="academic_year">Academic year</string>
+    <string name="barnameh_c">برنامه کلاسی</string>
+    <string name="barnameh_e">امتحان ها</string>
+    <string name="karnameh">کارنامه</string>
+    <string name="ertebat">ارتباط</string>
+    <string name="information_app">پایش تحصیلی و گنجینه سوالات</string>
+    <string name="clas">کلاس ها</string>
+    <string name="emtehan">امتحان ها</string>
+    <string name="aval">اولین</string>
+    <string name="dovom">دومین</string>
+    <string name="editProfile">تغییر</string>
+    <string name="update">بروزرسانی</string>
+    <string name="national_code">کد ملی</string>
+    <string name="exit">خروج</string>
+    <string name="qr_code">اشتراک</string>
+    <string name="galleryImages">گالری</string>
+    <string name="select_class_to_view">انتخاب کنید</string>
+    <string name="title">تغییر</string>
+    <string name="description">برای تغییر مشخصات پروفایل این دکمه رو بزنید</string>
+    <string name="title2">اشتراک گذاری</string>
+    <string name="description2">از این قسمت می توانید پروفایل خود را با بقیه به اشتراک بگذارید</string>
+    <string name="title3">خروج</string>
+    <string name="description3">برای خروج از این قسمت استفاده کنید</string>
+    <string name="exam">امتحان</string>
+    <string name="question">سوالات</string>
+    <string name="workbook">تمرین</string>
+    <string name="ranking">رتبه بندی</string>
+    <string name="curriclum">کارنامه</string>
+    <string name="attendance">حضور و غیاب</string>
+    <string name="inf">اطلاعات</string>
+    <string name="bashe">باشه</string>
+</resources>

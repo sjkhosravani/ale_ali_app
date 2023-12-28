@@ -12,20 +12,9 @@
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/layoutTop"
         android:layout_width="match_parent"
-        android:background="@color/white"
-        android:layout_height="@dimen/_30mdp">
-        <TextView
-            android:layout_width="0dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:textStyle="bold"
-            android:textColor="@color/eerieBlack"
-            android:gravity="center"
-            android:textSize="@dimen/_11font_mdp"
-            android:text="@string/app_name"
-            android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
+        <include android:id="@+id/topBar"
+            layout="@layout/toolbar_base"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
