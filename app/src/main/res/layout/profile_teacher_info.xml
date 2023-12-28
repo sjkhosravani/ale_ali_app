@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_rounded_white"
+    android:orientation="vertical"
+    android:padding="@dimen/_10mdp">
+    <!--first name-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/infoFirstNameLay"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30mdp">
+
+        <TextView
+            android:id="@+id/FirstNameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name_user"
+            android:textColor="@color/lightSteelBlue"
+            android:textSize="@dimen/_9font_mdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/firstNameTxt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textColor="@color/eerieBlack"
+            android:textSize="@dimen/_10font_mdp"
+            app:fontPath="fonts/iransans_bold.ttf"
+           app:layout_constraintStart_toEndOf="@id/FirstNameTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlHardcoded" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--Line-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginVertical="@dimen/_5mdp"
+        android:alpha="0.1"
+        android:background="@color/lightSteelBlue" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/infoBirthDateLay"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30mdp">
+
+        <TextView
+            android:id="@+id/lastNameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lastName"
+            android:textColor="@color/lightSteelBlue"
+            android:textSize="@dimen/_9font_mdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/birthDateTxt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textColor="@color/eerieBlack"
+            android:textSize="@dimen/_10font_mdp"
+            app:fontPath="fonts/iransans_bold.ttf"
+            app:layout_constraintStart_toEndOf="@id/lastNameTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlHardcoded" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--Line-->
+    <View
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginVertical="@dimen/_5mdp"
+        android:alpha="0.1"
+        android:background="@color/lightSteelBlue" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/infoWalletLay"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30mdp">
+
+        <TextView
+            android:id="@+id/RoleTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/role"
+            android:textColor="@color/lightSteelBlue"
+            android:textSize="@dimen/_9font_mdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/RoleTxt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textColor="@color/eerieBlack"
+            android:textSize="@dimen/_10font_mdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:fontPath="fonts/iransans_bold.ttf"
+            app:layout_constraintStart_toEndOf="@id/RoleTitle"
+            tools:ignore="RtlHardcoded" />
+
+        <ProgressBar
+            android:id="@+id/walletLoading"
+            android:layout_width="@dimen/_15mdp"
+            android:layout_height="@dimen/_15mdp"
+            android:layout_marginStart="@dimen/_20mdp"
+            android:visibility="gone"
+            android:theme="@style/DarkProgressbar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--Line-->
+    <View
+        android:id="@+id/line3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginVertical="@dimen/_5mdp"
+        android:alpha="0.1"
+        android:background="@color/lightSteelBlue" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/infoCode"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30mdp">
+
+        <TextView
+            android:id="@+id/CodeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/code"
+            android:textColor="@color/lightSteelBlue"
+            android:textSize="@dimen/_9font_mdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/codeTxt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textColor="@color/eerieBlack"
+            android:textSize="@dimen/_10font_mdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:fontPath="fonts/iransans_bold.ttf"
+            app:layout_constraintStart_toEndOf="@id/CodeTitle"
+            tools:ignore="RtlHardcoded" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--Line-->
+    <View
+        android:id="@+id/line4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginVertical="@dimen/_5mdp"
+        android:alpha="0.1"
+        android:background="@color/lightSteelBlue" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/infoDate"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30mdp">
+
+        <TextView
+            android:id="@+id/infoDateTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textColor="@color/lightSteelBlue"
+            android:textSize="@dimen/_9font_mdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dateTxt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textColor="@color/eerieBlack"
+            android:textSize="@dimen/_10font_mdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:fontPath="fonts/iransans_bold.ttf"
+            app:layout_constraintStart_toEndOf="@id/infoDateTitle"
+            tools:ignore="RtlHardcoded" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--Line-->
+    <View
+        android:id="@+id/line5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginVertical="@dimen/_5mdp"
+        android:alpha="0.1"
+        android:background="@color/lightSteelBlue" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/infoPayeh"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30mdp">
+
+        <TextView
+            android:id="@+id/infoPayehTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Payeh"
+            android:textColor="@color/lightSteelBlue"
+            android:textSize="@dimen/_9font_mdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/payehTxt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textColor="@color/eerieBlack"
+            android:textSize="@dimen/_10font_mdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:fontPath="fonts/iransans_bold.ttf"
+            app:layout_constraintStart_toEndOf="@id/infoPayehTitle"
+            tools:ignore="RtlHardcoded" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--Line-->
+    <View
+        android:id="@+id/line6"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginVertical="@dimen/_5mdp"
+        android:alpha="0.1"
+        android:background="@color/lightSteelBlue" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/infoSalae"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30mdp">
+
+        <TextView
+            android:id="@+id/infoSalaeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salae"
+            android:textColor="@color/lightSteelBlue"
+            android:textSize="@dimen/_9font_mdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/saleTxt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textColor="@color/eerieBlack"
+            android:textSize="@dimen/_10font_mdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:fontPath="fonts/iransans_bold.ttf"
+            app:layout_constraintStart_toEndOf="@id/infoSalaeTitle"
+            tools:ignore="RtlHardcoded" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Development</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_menu">Home</string>
+    <string name="profile_menu">Profile</string>
+    <string name="version">Version</string>
+    <string name="help">Help</string>
+    <string name="user_name">User Name</string>
+    <string name="password">Password</string>
+    <string name="submit">Login</string>
+    <string name="register_rest_password">Register</string>
+    <string name="error">Empty</string>
+    <string name="setting">operation</string>
+    <string name="checkYourNetwork">Check Your Network!!</string>
+    <string name="birthDate">Date of</string>
+    <string name="name_user">First Name</string>
+    <string name="lastName">Laste Name</string>
+    <string name="role">Role</string>
+    <string name="code">National_code</string>
+    <string name="date_of_birtday">Date of birth</string>
+    <string name="grade">Grade</string>
+    <string name="academic_year">Academic year</string>
+    <string name="barnameh_c">Class program</string>
+    <string name="barnameh_e">examination</string>
+    <string name="karnameh">report card</string>
+    <string name="ertebat">Relationship</string>
+    <string name="information_app">Information app</string>
+    <string name="clas">Calsses</string>
+    <string name="emtehan">Exam List</string>
+    <string name="aval">First</string>
+    <string name="dovom">Secend</string>
+    <string name="editProfile">Edite Profile</string>
+    <string name="update">Update</string>
+    <string name="national_code">National Code </string>
+    <string name="exit">Exit</string>
+    <string name="qr_code">qrCode</string>
+    <string name="galleryImages">Gallery</string>
+
+</resources>

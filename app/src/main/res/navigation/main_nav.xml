@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="ir.mobfix.aleali.ui.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="ir.mobfix.aleali.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="ir.mobfix.aleali.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="ir.mobfix.aleali.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+
+        <action
+            android:id="@+id/action_profileFragment_to_edtProfFragment"
+            app:destination="@id/edtProfFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="ir.mobfix.aleali.ui.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/claasFragment"
+        android:name="ir.mobfix.aleali.ui.calss.ClaasFragment"
+        android:label="fragment_claas"
+        tools:layout="@layout/fragment_claas" />
+    <fragment
+        android:id="@+id/programFragment"
+        android:name="ir.mobfix.aleali.ui.program.ProgramFragment"
+        android:label="fragment_program"
+        tools:layout="@layout/fragment_program" />
+    <fragment
+        android:id="@+id/edtProfFragment"
+        android:name="ir.mobfix.aleali.ui.profileedite.EdtProfFragment"
+        android:label="fragment_edt_prof"
+        tools:layout="@layout/fragment_edt_prof" />
+</navigation>
