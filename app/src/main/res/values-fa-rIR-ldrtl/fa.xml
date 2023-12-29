@@ -29,8 +29,8 @@
     <string name="information_app">پایش تحصیلی و گنجینه سوالات</string>
     <string name="clas">کلاس ها</string>
     <string name="emtehan">امتحان ها</string>
-    <string name="aval">اولین</string>
-    <string name="dovom">دومین</string>
+    <string name="aval">امتحان اول</string>
+    <string name="dovom">امتحان دوم</string>
     <string name="editProfile">تغییر</string>
     <string name="update">بروزرسانی</string>
     <string name="national_code">کد ملی</string>
@@ -55,4 +55,8 @@
     <string name="err">واقعا میخوای بری ؟</string>
     <string name="err500">خطای سیستمی</string>
     <string name="well">خوش آمدید</string>
+    <string name="sevom">امتحان سوم</string>
+    <string name="charom">امتحان چهارم (لغو شده)</string>
+    <string name="panjom">امتحان پنجم</string>
+    <string name="sheshom">امتحان ششم</string>
 </resources>

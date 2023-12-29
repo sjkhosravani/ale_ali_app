@@ -5,6 +5,10 @@
     android:id="@+id/main_nav"
     app:startDestination="@id/splashFragment">
 
+
+    <action
+        android:id="@+id/action_to_examFragment"
+        app:destination="@id/examFragment" />
     <fragment
         android:id="@+id/splashFragment"
         android:name="ir.mobfix.aleali.ui.splash.SplashFragment"
@@ -19,7 +23,9 @@
         android:id="@+id/homeFragment"
         android:name="ir.mobfix.aleali.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="ir.mobfix.aleali.ui.profile.ProfileFragment"
@@ -55,4 +61,14 @@
         android:name="ir.mobfix.aleali.ui.webview.WebViewFragment"
         android:label="fragment_web_view"
         tools:layout="@layout/fragment_web_view" />
+    <fragment
+        android:id="@+id/examFragment"
+        android:name="ir.mobfix.aleali.ui.exam.ExamFragment"
+        android:label="fragment_exam"
+        tools:layout="@layout/fragment_exam" >
+        <argument
+            android:name="userName"
+            app:argType="string" />
+
+    </fragment>
 </navigation>

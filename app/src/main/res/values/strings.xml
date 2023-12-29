@@ -54,5 +54,9 @@
     <string name="err">Do you want to exit?</string>
     <string name="err500">Error 500</string>
     <string name="well">Well Come</string>
+    <string name="sevom">thired</string>
+    <string name="charom">Fourth</string>
+    <string name="panjom">the fifth</string>
+    <string name="sheshom">sixth</string>
 
 </resources>
