@@ -49,15 +49,10 @@ class EdtProfFragment : BottomSheetDialogFragment() {
 
     private var user : String = ""
 
-
-    //Theme
-    override fun getTheme() = R.style.RemoveDialogBackground
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentEdtProfBinding.inflate(layoutInflater)
         return binding.root
     }
-
     @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -92,6 +87,11 @@ class EdtProfFragment : BottomSheetDialogFragment() {
                     profileViewModel.profileDataUpdate(token,user,body)
                 }
 
+            }
+
+            //close
+            closeImg.setOnClickListener {
+                findNavController().popBackStack()
             }
             loadProfileData()
             loadUpdateProfileData()

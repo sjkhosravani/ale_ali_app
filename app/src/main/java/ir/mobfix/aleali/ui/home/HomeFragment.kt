@@ -27,6 +27,7 @@ import ir.mobfix.aleali.utils.extensions.transparentCorners
 import ir.mobfix.aleali.utils.network.NetworkChecker
 import ir.mobfix.aleali.utils.network.NetworkRequest
 import ir.mobfix.aleali.viewmodel.ProfileViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -83,7 +84,10 @@ class HomeFragment : Fragment() {
             }
             lifecycleScope.launch { token = sessionManager.getToken.first()!! }
             if (isNetworkAvailable){
-                profileViewModel.profileData(token)
+                lifecycleScope.launch {
+                    delay(200)
+                    profileViewModel.profileData(token)
+                }
                 loadG()
                 setMenuStudents()
                 setMenuTeacher()

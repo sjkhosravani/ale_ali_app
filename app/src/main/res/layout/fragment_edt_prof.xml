@@ -12,10 +12,11 @@
         android:id="@+id/closeImg"
         android:layout_width="@dimen/_20mdp"
         android:layout_height="@dimen/_20mdp"
-        android:layout_marginEnd="@dimen/_15mdp"
+        android:layout_marginStart="@dimen/_15mdp"
         android:padding="@dimen/_1mdp"
-        android:src="@drawable/xmark"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/arrow_left"
+        android:rotation="180"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/darkStrategy" />
     <!--Title-->
@@ -44,12 +45,14 @@
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollLay"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:clipToPadding="false"
         android:fillViewport="true"
         android:paddingTop="@dimen/_10mdp"
-        app:layout_constraintEnd_toEndOf="@id/submitBtn"
-        app:layout_constraintStart_toStartOf="@id/submitBtn"
+        android:layout_margin="@dimen/_8mdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/line1">
 
         <LinearLayout
@@ -125,25 +128,25 @@
                     android:textColor="@color/darkTurquoise"
                     android:textSize="@dimen/_10font_mdp" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Button-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/submitBtn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40mdp"
+                android:layout_marginTop="@dimen/_20mdp"
+                android:background="@drawable/bg_gradient_rounded"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:stateListAnimator="@null"
+                android:text="@string/update"
+                android:textColor="@color/white"
+                app:backgroundTint="@null" />
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
-    <!--Button-->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/submitBtn"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/_40mdp"
-        android:layout_margin="@dimen/_20mdp"
-        android:background="@drawable/bg_gradient_rounded"
-        android:insetTop="0dp"
-        android:insetBottom="0dp"
-        android:stateListAnimator="@null"
-        android:text="@string/update"
-        android:textColor="@color/white"
-        app:backgroundTint="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollLay" />
+
     <!--Loading-->
     <ProgressBar
         android:id="@+id/loading"
