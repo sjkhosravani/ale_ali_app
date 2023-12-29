@@ -51,5 +51,7 @@
     <string name="attendance">Attendance</string>
     <string name="inf">Information</string>
     <string name="bashe">Ok</string>
+    <string name="err">Do you want to exit?</string>
+    <string name="err500">Error 500</string>
 
 </resources>

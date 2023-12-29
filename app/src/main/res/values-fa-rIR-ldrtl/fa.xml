@@ -6,7 +6,7 @@
     <string name="home_menu">خانه</string>
     <string name="profile_menu">پروفایل</string>
     <string name="version">نسخه</string>
-    <string name="help">راهنمایی</string>
+    <string name="help">راهنما</string>
     <string name="user_name">نام کاربری</string>
     <string name="password">رمز ورود</string>
     <string name="submit">ورود</string>
@@ -52,4 +52,6 @@
     <string name="attendance">حضور و غیاب</string>
     <string name="inf">اطلاعات</string>
     <string name="bashe">باشه</string>
+    <string name="err">واقعا میخوای بری ؟</string>
+    <string name="err500">خطای سیستمی</string>
 </resources>

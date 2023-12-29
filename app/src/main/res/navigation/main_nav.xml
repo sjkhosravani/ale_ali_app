@@ -50,4 +50,9 @@
         android:name="ir.mobfix.aleali.ui.profileedite.EdtProfFragment"
         android:label="fragment_edt_prof"
         tools:layout="@layout/fragment_edt_prof" />
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="ir.mobfix.aleali.ui.webview.WebViewFragment"
+        android:label="fragment_web_view"
+        tools:layout="@layout/fragment_web_view" />
 </navigation>

@@ -12,6 +12,7 @@
         android:layout_marginStart="@dimen/_10mdp"
         android:padding="@dimen/_5mdp"
         android:src="@drawable/arrow_left"
+        android:rotation="180"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

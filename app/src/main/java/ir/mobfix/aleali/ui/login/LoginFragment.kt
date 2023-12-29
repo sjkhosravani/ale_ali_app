@@ -22,6 +22,7 @@ import ir.mobfix.aleali.data.stored.GroupManager
 import ir.mobfix.aleali.data.stored.SessionManager
 import ir.mobfix.aleali.databinding.FragmentLoginBinding
 import ir.mobfix.aleali.utils.BASE_URL
+import ir.mobfix.aleali.utils.BASE_URL_DOC
 import ir.mobfix.aleali.utils.extensions.hideKeyboard
 import ir.mobfix.aleali.utils.extensions.showSnackBar
 import ir.mobfix.aleali.utils.network.NetworkChecker
@@ -94,13 +95,15 @@ class LoginFragment : Fragment() {
             }
 
             //click
-            textHelp.setOnClickListener{
-                var url = BASE_URL
+            constraintHelp.setOnClickListener{
+            /*    var url = BASE_URL_DOC
                 if (!url.startsWith("http://") && !url.startsWith("https://")) {
                     url = "http://$url"
                 }
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                startActivity(browserIntent)
+                startActivity(browserIntent)*/
+
+                findNavController().navigate(R.id.webViewFragment)
             }
         }
     }

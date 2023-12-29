@@ -3,17 +3,18 @@ package ir.mobfix.aleali.ui.profile
 
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-
 import androidx.navigation.fragment.findNavController
 import coil.load
 import com.app.imagepickerlibrary.ImagePicker
@@ -68,11 +69,7 @@ class ProfileFragment : Fragment(), ImagePickerResultListener {
     private var isNetworkAvailable = true
     private val imagePicker: ImagePicker by lazy { registerImagePicker(this) }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentProfileBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -93,22 +90,28 @@ class ProfileFragment : Fragment(), ImagePickerResultListener {
                 networkChecker.checkNetwork().collect { isNetworkAvailable = it }
             }
 
-            containerBot.apply { menuEditLay.setOnClickListener { findNavController().navigate(R.id.edtProfFragment) } }
-            //  loadLoadAvatarData()
-            // getProfileData()
+            //Edite btn click
+            containerBot.apply {
+                menuEditLay.setOnClickListener { findNavController().navigate(R.id.edtProfFragment) }
+                menuCanceledImg.setOnClickListener{
+                    AlertDialog.Builder(requireContext()).setMessage(R.string.err)
+                        .setTitle(getString(R.string.inf))
+                        .setPositiveButton(getString(R.string.bashe)) { _, _ ->
+                            lifecycleScope.launch { sessionManager.clearToken() }
+                            restartSelf()
+                        }
+                        .show()
+
+                }
+            }
+
+            //get isPerformed
             lifecycleScope.launch {
                 isPerformed = storePerformed.getPerformed().first()
             }
 
-            lifecycleScope.launch {
-                delay(100)
-                if (!isPerformed) {
-                    storePerformed.savePerformed(true)
-                    helping()
-                }
-
-            }
-
+            loadLoadAvatarData()
+            getProfileData()
         }
     }
 
@@ -231,6 +234,13 @@ class ProfileFragment : Fragment(), ImagePickerResultListener {
                     binding.infoContainer.isVisible = true
                     binding.loadingP.isVisible = false
                     binding.constraintB.isVisible = true
+                    lifecycleScope.launch {
+                        delay(100)
+                        if (!isPerformed) {
+                            storePerformed.savePerformed(true)
+                            helping()
+                        }
+                    }
                 }
                 is NetworkRequest.Error -> {
                     binding.apply {
@@ -266,5 +276,13 @@ class ProfileFragment : Fragment(), ImagePickerResultListener {
                 }
             }
         }
+    }
+
+    @SuppressLint("UnspecifiedImmutableFlag")
+    private fun restartSelf() {
+        val i =requireContext().packageManager
+            .getLaunchIntentForPackage(requireContext().packageName)
+        i!!.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(i)
     }
 }
