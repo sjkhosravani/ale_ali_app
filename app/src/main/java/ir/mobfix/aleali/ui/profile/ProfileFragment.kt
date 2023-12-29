@@ -222,6 +222,7 @@ class ProfileFragment : Fragment(), ImagePickerResultListener {
                                 lastNameTxt.text = it.lastName
                                 dateTxt.text = it.birthday
                                 codeTxt.text = it.nationalCode
+                                roleTxt.text = it.userGroups!![0]!!.name
                             }
                             user = it.username.toString()
                             if (it.avatarUrl.isNullOrEmpty()) {

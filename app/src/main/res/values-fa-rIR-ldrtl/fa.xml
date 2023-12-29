@@ -54,4 +54,5 @@
     <string name="bashe">باشه</string>
     <string name="err">واقعا میخوای بری ؟</string>
     <string name="err500">خطای سیستمی</string>
+    <string name="well">خوش آمدید</string>
 </resources>

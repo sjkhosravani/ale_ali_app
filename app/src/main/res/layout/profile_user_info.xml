@@ -89,13 +89,12 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:visibility="gone"
-        android:id="@+id/infoWalletLay"
+        android:id="@+id/infoRoleLay"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_30mdp">
 
         <TextView
-            android:id="@+id/RoleTitle"
+            android:id="@+id/roleTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/role"
@@ -109,14 +108,14 @@
             android:id="@+id/roleTxt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="end"
             android:textColor="@color/eerieBlack"
             android:textSize="@dimen/_10font_mdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:fontPath="fonts/iransans_bold.ttf"
-            app:layout_constraintStart_toEndOf="@id/RoleTitle"
+            app:layout_constraintStart_toEndOf="@id/roleTitle"
             tools:ignore="RtlHardcoded" />
 
         <ProgressBar
@@ -135,7 +134,6 @@
     <!--Line-->
     <View
         android:id="@+id/line3"
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginVertical="@dimen/_5mdp"

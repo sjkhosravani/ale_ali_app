@@ -50,8 +50,9 @@
     <string name="curriclum">curriclum</string>
     <string name="attendance">Attendance</string>
     <string name="inf">Information</string>
-    <string name="bashe">Ok</string>
+    <string name="bashe">OK</string>
     <string name="err">Do you want to exit?</string>
     <string name="err500">Error 500</string>
+    <string name="well">Well Come</string>
 
 </resources>
