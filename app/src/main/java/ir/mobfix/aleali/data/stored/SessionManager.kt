@@ -28,8 +28,8 @@ class SessionManager @Inject constructor(@ApplicationContext private val context
         }
     }
 
-    val getToken: Flow<String?> = appContext.dataStore.data.map {
-        it[USER_TOKEN]
+    val getToken: Flow<String> = appContext.dataStore.data.map {
+        it[USER_TOKEN] ?: ""
     }
 
     suspend fun clearToken() {

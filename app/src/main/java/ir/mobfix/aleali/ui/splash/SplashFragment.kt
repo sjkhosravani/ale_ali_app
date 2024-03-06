@@ -39,15 +39,15 @@ class SplashFragment : Fragment() {
         //Init views
         binding.apply {
             //Version
-            versionTxt.text = "${getString(R.string.version)} : ${BuildConfig.VERSION_NAME}"
+            versionTxt.text = "${getString(R.string.version)}:${BuildConfig.VERSION_NAME}"
         }
         //Check user
         lifecycleScope.launch {
             delay(2000)
             val token = sessionManager.getToken.first()
-            Log.e("userToken", token.toString())
+            Log.e("userToken", token)
             findNavController().popBackStack(R.id.splashFragment, true)
-            if (token == null) {
+            if (token.isEmpty()) {
                 findNavController().navigate(R.id.loginFragment)
             } else {
                 findNavController().navigate(R.id.homeFragment)

@@ -132,7 +132,7 @@ class LoginFragment : Fragment() {
                                 groupSessionManager.saveType(response.data.token)
                             }
                             findNavController().popBackStack(R.id.loginFragment, true)
-                            findNavController().navigate(R.id.homeFragment)
+                            findNavController().navigate(R.id.profileFragment)
                         }
                     }
                     is NetworkRequest.Error -> {

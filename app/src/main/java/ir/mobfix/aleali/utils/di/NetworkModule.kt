@@ -30,7 +30,6 @@ object NetworkModule {
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
             .create(ApiServices::class.java)
-
     @Provides
     @Singleton
     fun provideBaseUrl() = BASE_URL

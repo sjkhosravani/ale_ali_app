@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -20,7 +21,7 @@ import ir.mobfix.aleali.data.stored.GroupManager
 import ir.mobfix.aleali.data.stored.SessionManager
 import ir.mobfix.aleali.databinding.DialogCalssBinding
 import ir.mobfix.aleali.databinding.FragmentHomeBinding
-import ir.mobfix.aleali.ui.exam.ExamFragmentDirections
+
 import ir.mobfix.aleali.ui.home.adapters.ClassAdapter
 import ir.mobfix.aleali.ui.home.adapters.StudentAdapter
 import ir.mobfix.aleali.ui.home.adapters.TeacherAdapter
@@ -73,15 +74,17 @@ class HomeFragment : Fragment() {
             lifecycleScope.launch {
                 networkChecker.checkNetwork().collect { isNetworkAvailable = it }
             }
-            lifecycleScope.launch { token = sessionManager.getToken.first()!! }
+            lifecycleScope.launch {
+                delay(100)
+                token = sessionManager.getToken.first() }
             if (isNetworkAvailable){
                 lifecycleScope.launch {
-                    delay(200)
+                    delay(300)
                     profileViewModel.profileData(token)
+                    loadG()
+                    setMenuStudents()
+                    setMenuTeacher()
                 }
-                loadG()
-                setMenuStudents()
-                setMenuTeacher()
             }
 
         }
@@ -93,21 +96,31 @@ class HomeFragment : Fragment() {
            when (response) {
                is NetworkRequest.Loading -> {}
                is NetworkRequest.Success -> {
-                   response.data?.let {
-                       val userGroup =it.userGroups!![0]
-                      when(userGroup!!.id){
-                          1 ->{
-                              studentList()
-                              binding.topBar.toolbarTitleTxt.text = "${it.firstName} ${userGroup.name} ${getString(R.string.well)}"
-                          }
-                          2->{
-                              listTeachers()
-                              binding.topBar.toolbarTitleTxt.text = "${it.firstName} ${userGroup.name} ${getString(R.string.well)}"
-                          }
-                          3 ->{
-                              binding.topBar.toolbarTitleTxt.text = "${it.firstName} ${userGroup.name} ${getString(R.string.well)}"
-                          }
-                      }
+                   response.data?.let {res->
+                       res.userGroups.let {
+                           if (it!!.isEmpty()){
+                               Toast.makeText(requireContext(), "دسترسی ندارید", Toast.LENGTH_SHORT).show()
+                           }else{
+                               val userGroup =it[0]
+                               when(userGroup!!.id){
+                                   1 ->{
+                                       studentList()
+                                       binding.topBar.toolbarTitleTxt.text = "${res.firstName} ${userGroup.name} ${getString(R.string.well)}"
+                                   }
+                                   2->{
+                                       listTeachers()
+                                       binding.topBar.toolbarTitleTxt.text = "${res.firstName} ${userGroup.name} ${getString(R.string.well)}"
+                                   }
+                                   3 ->{
+                                       binding.topBar.toolbarTitleTxt.text = "${res.firstName} ${userGroup.name} ${getString(R.string.well)}"
+                                   }
+                               }
+                           }
+
+
+                       }
+
+
                    }
                }
                is NetworkRequest.Error -> {}
@@ -137,8 +150,7 @@ class HomeFragment : Fragment() {
         studentList.clear()
         studentList.add(ModelsStudent(1,getString(R.string.barnameh_c),R.drawable.classs,R.color.lightTurquoise))
         studentList.add(ModelsStudent(2,getString(R.string.barnameh_e),R.drawable.examlist,R.color.lightSalmon))
-        studentList.add(ModelsStudent(3,getString(R.string.karnameh),R.drawable.certificate,R.color.caribbeanGreen))
-        studentList.add(ModelsStudent(4,getString(R.string.ertebat),R.drawable.logo,R.color.crayola))
+
     }
     fun setMenuTeacher(){
         teacherList.clear()

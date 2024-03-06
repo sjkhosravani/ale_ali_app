@@ -222,13 +222,13 @@ class ProfileFragment : Fragment(), ImagePickerResultListener {
                                 lastNameTxt.text = it.lastName
                                 dateTxt.text = it.birthday
                                 codeTxt.text = it.nationalCode
-                                roleTxt.text = it.userGroups!![0]!!.name
+                              //  roleTxt.text = it.userGroups!![0]!!.name
                             }
                             user = it.username.toString()
                             if (it.avatarUrl.isNullOrEmpty()) {
                                 avatarImg.load(R.drawable.placeholder)
                             } else {
-                                avatarImg.loadImage("$BASE_URL_IMAGE${it.avatarUrl}")
+                                //avatarImg.loadImage("$BASE_URL_IMAGE${it.avatarUrl}")
                             }
                         }
                     }

@@ -1,9 +1,9 @@
 package ir.mobfix.aleali.utils
 
 //Server
-const val BASE_URL = "http://192.168.1.80:8000/api/"
-const val BASE_URL_IMAGE = "http://192.168.1.80:8000/"
-const val BASE_URL_DOC = "http://192.168.1.80:9000/"
+const val BASE_URL = "https://shahid-aleali.site/api/"
+const val BASE_URL_IMAGE = "https://apiv2.iranzamin.site/api/"
+const val BASE_URL_DOC = "https://apiv2.iranzamin.site:9000"
 const val CONNECTION_TIME = 60L
 const val PING_INTERVAL = 3L
 
@@ -34,4 +34,5 @@ const val MULTIPART_FROM_DATA = "multipart/form-data"
 const val UTF_8 = "UTF-8"
 
 
-const val ERROR_400 = "با اطلاعات ارسال شده نمیتوان وارد شد."
+const val ERROR_400 = "با اطلاعات ارسال شده نمیتوان وارد شد"
+const val ERROR_NETWORK = "error_network"
