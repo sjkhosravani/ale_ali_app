@@ -1,6 +1,6 @@
 package ir.mobfix.aleali.utils
 
-//Server
+
 const val BASE_URL = "https://shahid-aleali.site/api/"
 const val BASE_URL_IMAGE = "https://apiv2.iranzamin.site/api/"
 const val BASE_URL_DOC = "https://apiv2.iranzamin.site:9000"
@@ -9,17 +9,19 @@ const val PING_INTERVAL = 3L
 
 
 const val STORE_PERFORMED = "store_performed"
-const val  PERFORMED = "PERFORMED"
+const val  PERFORMED = "performed"
+const val LANG = "lang"
 
-//Injection named
+
 const val NAMED_PING = "named_ping"
 const val NAMED_VPN = "named_vpn"
 
-//Session
+
 const val SESSION_AUTH_DATA = "session_auth_data"
 const val USER_TOKEN_DATA = "user_token_data"
+const val LANGUAGE_LOCAL = "language_local"
 
-//Session
+
 const val G_AUTH_DATA = "g_auth_data"
 const val G_DATA = "g_data"
 
@@ -35,4 +37,7 @@ const val UTF_8 = "UTF-8"
 
 
 const val ERROR_400 = "با اطلاعات ارسال شده نمیتوان وارد شد"
-const val ERROR_NETWORK = "error_network"
+const val ERROR_NETWORK = "network error"
+
+const val FARSI = "fa"
+const val ENGLISH = "en"

@@ -12,8 +12,12 @@ import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import ir.mobfix.aleali.BuildConfig
 import ir.mobfix.aleali.R
+import ir.mobfix.aleali.data.stored.LanguageLocal
 import ir.mobfix.aleali.data.stored.SessionManager
 import ir.mobfix.aleali.databinding.FragmentSplashBinding
+import ir.mobfix.aleali.utils.ENGLISH
+import ir.mobfix.aleali.utils.FARSI
+import ir.mobfix.aleali.utils.extensions.setAppLocale
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -32,7 +36,6 @@ class SplashFragment : Fragment() {
         _binding = FragmentSplashBinding.inflate(layoutInflater)
         return binding.root
     }
-
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -50,7 +53,7 @@ class SplashFragment : Fragment() {
             if (token.isEmpty()) {
                 findNavController().navigate(R.id.loginFragment)
             } else {
-                findNavController().navigate(R.id.homeFragment)
+                findNavController().navigate(R.id.profileFragment)
             }
         }
     }

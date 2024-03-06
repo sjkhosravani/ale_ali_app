@@ -84,12 +84,10 @@ class ProfileFragment : Fragment(), ImagePickerResultListener {
             }
             //get token
             lifecycleScope.launch { token = sessionManager.getToken.first().toString() }
-
             //check net
             lifecycleScope.launch {
                 networkChecker.checkNetwork().collect { isNetworkAvailable = it }
             }
-
             //Edite btn click
             containerBot.apply {
                 menuEditLay.setOnClickListener { findNavController().navigate(R.id.edtProfFragment) }
@@ -103,8 +101,10 @@ class ProfileFragment : Fragment(), ImagePickerResultListener {
                         .show()
 
                 }
+                menuPendingImg.setOnClickListener{
+                    findNavController().navigate(R.id.toolsFragment)
+                }
             }
-
             //get isPerformed
             lifecycleScope.launch {
                 isPerformed = storePerformed.getPerformed().first()

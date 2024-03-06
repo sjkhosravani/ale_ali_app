@@ -42,4 +42,9 @@
     <color name="blueJeans">#5BC0F8</color>
     <color name="dodgerBlue">#2caef2</color>
     <color name="water">#DAF5FF</color>
+    <color name="charcoal">#354259</color>
+    <color name="grayDark">#737980</color>
+    <color name="grayLight">#f6f8f9</color>
+    <color name="yellowLight">#faf6e9</color>
+    <color name="yellowDark">#b89b36</color>
 </resources>

@@ -71,4 +71,9 @@
             app:argType="string" />
 
     </fragment>
+    <fragment
+        android:id="@+id/toolsFragment"
+        android:name="ir.mobfix.aleali.ui.tools.ToolsFragment"
+        android:label="fragment_tools"
+        tools:layout="@layout/fragment_tools" />
 </navigation>

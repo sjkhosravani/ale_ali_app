@@ -6,13 +6,16 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
+import android.content.res.Configuration
+import android.content.res.Resources
 import android.graphics.Typeface
 import android.net.Uri
+import android.os.Build
+import android.os.LocaleList
 import android.provider.MediaStore
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
-import android.widget.ImageView
+import android.widget.*
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
@@ -25,11 +28,47 @@ import coil.request.CachePolicy
 import com.google.android.material.snackbar.Snackbar
 import ir.mobfix.aleali.R
 import java.text.DecimalFormat
+import java.util.*
+
+fun setAppLocale(context: Context , lang : String){
+    val locale = Locale(lang)
+    Locale.setDefault(locale)
+    val config = context.resources.configuration
+    config.setLocale(locale)
+    context.createConfigurationContext(config)
+    context.resources.updateConfiguration(config,context.resources.displayMetrics)
+}
 
 fun View.hideKeyboard() {
     val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     imm.hideSoftInputFromWindow(windowToken, 0)
 }
+
+fun Spinner.setupListWithAdapter(list: MutableList<String>, callback: (String) -> Unit) {
+    val adapter = ArrayAdapter(context, android.R.layout.simple_spinner_item, list)
+    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+    this.adapter = adapter
+    this.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+            callback(list[p2])
+        }
+
+        override fun onNothingSelected(p0: AdapterView<*>?) {
+
+        }
+    }
+}
+fun MutableList<out Any>.getIndexFromList(item: Any): Int {
+    var index = 0
+    for (i in this.indices) {
+        if (this[i] == item) {
+            index = i
+            break
+        }
+    }
+    return index
+}
+
 
 fun EditText.showKeyboard(activity: Activity) {
     requestFocus()
