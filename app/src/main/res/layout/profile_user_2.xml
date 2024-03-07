@@ -51,10 +51,9 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40mdp"
             android:layout_marginHorizontal="@dimen/_3mdp"
-            android:layout_marginTop="4dp"
             android:background="@color/chineseYellow"
             android:padding="@dimen/_12mdp"
-            android:src="@drawable/round_switch_access_shortcut_24"
+            android:src="@drawable/twotone_settings"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:roundPercent="0.3"
@@ -79,7 +78,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1">
-
         <androidx.constraintlayout.utils.widget.ImageFilterView
             android:id="@+id/menuEditLay"
             android:layout_width="match_parent"

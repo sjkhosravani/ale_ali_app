@@ -7,7 +7,6 @@
     tools:context=".ui.tools.ToolsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:paddingTop="@dimen/_10mdp"
         android:id="@+id/constraintTop"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
@@ -15,6 +14,7 @@
         <!--Close-->
         <ImageView
             android:id="@+id/closeImg"
+            android:visibility="gone"
             android:layout_width="@dimen/_20mdp"
             android:layout_height="@dimen/_20mdp"
             android:layout_marginStart="@dimen/_15mdp"
@@ -33,7 +33,7 @@
             android:text="@string/settings"
             android:textColor="@color/darkStrategy"
             android:textSize="@dimen/_12font_mdp"
-            app:layout_constraintBottom_toBottomOf="@+id/closeImg"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

@@ -30,7 +30,7 @@
         android:textStyle="bold"
         android:textSize="@dimen/_10font_mdp"
         app:layout_constraintBottom_toBottomOf="@id/close"
-        android:text="@string/select_class_to_view"
+        android:text=" "
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
 

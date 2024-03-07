@@ -23,6 +23,7 @@ import ir.mobfix.aleali.ui.main.MainActivity
 import ir.mobfix.aleali.utils.ENGLISH
 import ir.mobfix.aleali.utils.FARSI
 import ir.mobfix.aleali.utils.extensions.getIndexFromList
+import ir.mobfix.aleali.utils.extensions.isVisible
 import ir.mobfix.aleali.utils.extensions.setAppLocale
 import ir.mobfix.aleali.utils.extensions.setupListWithAdapter
 import ir.mobfix.aleali.viewmodel.SettingsViewModel
@@ -61,6 +62,8 @@ class ToolsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
+
+            closeImg.visibility = View.GONE
             viewModel.loadLang()
             viewModel.languageSelected.observe(viewLifecycleOwner) {
                 languageList.addAll(it)
@@ -72,10 +75,12 @@ class ToolsFragment : Fragment() {
                 when(lang){
                     FARSI->{
                         categoriesSpinner.setSelection(0)
-                        Toast.makeText(requireContext(), FARSI, Toast.LENGTH_SHORT).show()}
+                      //  Toast.makeText(requireContext(), FARSI, Toast.LENGTH_SHORT).show()
+                    }
                     ENGLISH->{
                         categoriesSpinner.setSelection(1)
-                        Toast.makeText(requireContext(), ENGLISH, Toast.LENGTH_SHORT).show()}
+                        //Toast.makeText(requireContext(), ENGLISH, Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
 

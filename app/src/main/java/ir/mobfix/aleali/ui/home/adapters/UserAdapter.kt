@@ -9,19 +9,19 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import ir.mobfix.aleali.data.models.ModelsStudent
+import ir.mobfix.aleali.data.models.UserResponse
 import ir.mobfix.aleali.databinding.ItemList1Binding
-import ir.mobfix.aleali.databinding.ItemList2Binding
 import javax.inject.Inject
 
 
-class ClassAdapter @Inject constructor() : RecyclerView.Adapter<ClassAdapter.ViewHolder>() {
+class UserAdapter @Inject constructor() : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
 
-    private lateinit var binding: ItemList2Binding
+    private lateinit var binding: ItemList1Binding
     private lateinit var context: Context
-    private var moviesList = emptyList<ModelsStudent>()
+    private var moviesList = emptyList<UserResponse>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        binding = ItemList2Binding.inflate(LayoutInflater.from(parent.context), parent, false)
+        binding = ItemList1Binding.inflate(LayoutInflater.from(parent.context), parent, false)
         context = parent.context
         return ViewHolder()
     }
@@ -38,9 +38,15 @@ class ClassAdapter @Inject constructor() : RecyclerView.Adapter<ClassAdapter.Vie
     inner class ViewHolder : RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
-        fun bind(item: ModelsStudent) {
+        fun bind(item: UserResponse) {
             binding.apply {
-               firstNameTitle.text = item.text
+               // textMenu.text = item.text
+                //textMenu.setBackgroundColor(ContextCompat.getColor(context,item.color))
+               // imgMenu.setColorFilter(ContextCompat.getColor(context,item.color))
+             /*   imgMenu.load(item.img){
+                    crossfade(500)
+                    crossfade(true)
+                }*/
                 root.setOnClickListener {
                     onItemClickListener?.let {
                         it(item)
@@ -50,19 +56,19 @@ class ClassAdapter @Inject constructor() : RecyclerView.Adapter<ClassAdapter.Vie
         }
     }
 
-    private var onItemClickListener: ((ModelsStudent) -> Unit)? = null
-    fun setOnItemClickListener(listener: (ModelsStudent) -> Unit) {
+    private var onItemClickListener: ((UserResponse) -> Unit)? = null
+    fun setOnItemClickListener(listener: (UserResponse) -> Unit) {
         onItemClickListener = listener
     }
 
-    fun setData(data: List<ModelsStudent>) {
+    fun setData(data: List<UserResponse>) {
         val moviesDiffUtil = NotesDiffUtils(moviesList, data)
         val diffUtils = DiffUtil.calculateDiff(moviesDiffUtil)
         moviesList = data
         diffUtils.dispatchUpdatesTo(this)
     }
 
-    class NotesDiffUtils(private val oldItem: List<ModelsStudent>, private val newItem: List<ModelsStudent>) : DiffUtil.Callback() {
+    class NotesDiffUtils(private val oldItem: List<UserResponse>, private val newItem: List<UserResponse>) : DiffUtil.Callback() {
 
         override fun getOldListSize(): Int {
             return oldItem.size

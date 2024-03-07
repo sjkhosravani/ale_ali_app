@@ -2,25 +2,27 @@ package ir.mobfix.aleali.ui.home.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import ir.mobfix.aleali.data.models.ModelsStudent
+import ir.mobfix.aleali.data.models.ResponseMenu2.ResponseMenu2Item
 import ir.mobfix.aleali.databinding.ItemList1Binding
+import ir.mobfix.aleali.databinding.ItemList2Binding
+
 import javax.inject.Inject
 
+class Menu2Adapter @Inject constructor() : RecyclerView.Adapter<Menu2Adapter.ViewHolder>() {
 
-class TeacherAdapter @Inject constructor() : RecyclerView.Adapter<TeacherAdapter.ViewHolder>() {
-
-    private lateinit var binding: ItemList1Binding
+    private lateinit var binding: ItemList2Binding
     private lateinit var context: Context
-    private var moviesList = emptyList<ModelsStudent>()
+    private var moviesList = emptyList<ResponseMenu2Item>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        binding = ItemList1Binding.inflate(LayoutInflater.from(parent.context), parent, false)
+        binding = ItemList2Binding.inflate(LayoutInflater.from(parent.context), parent, false)
         context = parent.context
         return ViewHolder()
     }
@@ -36,16 +38,11 @@ class TeacherAdapter @Inject constructor() : RecyclerView.Adapter<TeacherAdapter
 
     inner class ViewHolder : RecyclerView.ViewHolder(binding.root) {
 
-        @SuppressLint("SetTextI18n")
-        fun bind(item: ModelsStudent) {
+        @SuppressLint("SetTextI18n", "ResourceType")
+        fun bind(item: ResponseMenu2Item) {
             binding.apply {
-                textMenu.text = item.text
-                textMenu.setBackgroundColor(ContextCompat.getColor(context,item.color))
-                imgMenu.setColorFilter(ContextCompat.getColor(context,item.color))
-                imgMenu.load(item.img){
-                    crossfade(500)
-                    crossfade(true)
-                }
+                firstNameTitle.text = item.title
+
                 root.setOnClickListener {
                     onItemClickListener?.let {
                         it(item)
@@ -55,19 +52,22 @@ class TeacherAdapter @Inject constructor() : RecyclerView.Adapter<TeacherAdapter
         }
     }
 
-    private var onItemClickListener: ((ModelsStudent) -> Unit)? = null
-    fun setOnItemClickListener(listener: (ModelsStudent) -> Unit) {
+    private var onItemClickListener: ((ResponseMenu2Item) -> Unit)? = null
+    fun setOnItemClickListener(listener: (ResponseMenu2Item) -> Unit) {
         onItemClickListener = listener
     }
 
-    fun setData(data: List<ModelsStudent>) {
+    fun setData(data: List<ResponseMenu2Item>) {
         val moviesDiffUtil = NotesDiffUtils(moviesList, data)
         val diffUtils = DiffUtil.calculateDiff(moviesDiffUtil)
         moviesList = data
         diffUtils.dispatchUpdatesTo(this)
     }
 
-    class NotesDiffUtils(private val oldItem: List<ModelsStudent>, private val newItem: List<ModelsStudent>) : DiffUtil.Callback() {
+    class NotesDiffUtils(
+        private val oldItem: List<ResponseMenu2Item>,
+        private val newItem: List<ResponseMenu2Item>
+    ) : DiffUtil.Callback() {
 
         override fun getOldListSize(): Int {
             return oldItem.size

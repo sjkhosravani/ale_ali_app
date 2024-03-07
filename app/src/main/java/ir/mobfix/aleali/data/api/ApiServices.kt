@@ -1,6 +1,8 @@
 package ir.mobfix.aleali.data.api
 
 
+import ir.mobfix.aleali.data.models.ResponseMenu
+import ir.mobfix.aleali.data.models.ResponseMenu2
 import ir.mobfix.aleali.data.models.profile.BodyUpdateProfile
 import ir.mobfix.aleali.data.models.ResponseProf2
 import ir.mobfix.aleali.data.models.login.BodyLogin
@@ -27,6 +29,10 @@ interface ApiServices {
     @Headers("Accept: application/json", "Content-Type: application/json")
     @PATCH("users/{username}/avatar/")
     suspend fun uploadImg(@Header("Authorization")token : String,@Path("username") username:String,@Body body: RequestBody): Response<Unit>
+
+    @Headers("Accept: application/json", "Content-Type: application/json")
+    @GET("menu")
+    suspend fun getMenu(@Header("Authorization")token : String,@Query("level") level: Int): Response<ResponseMenu2>
 
 
 }

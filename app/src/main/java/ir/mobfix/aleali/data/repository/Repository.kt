@@ -20,4 +20,6 @@ class Repository @Inject constructor(private  val api : ApiServices) {
     //upload img
     suspend fun postUploadAvatar(token: String,user:String,body: RequestBody) = api.uploadImg(token,user,body)
 
+    suspend fun getMenu(token: String,level : Int) = api.getMenu(token,level)
+
 }

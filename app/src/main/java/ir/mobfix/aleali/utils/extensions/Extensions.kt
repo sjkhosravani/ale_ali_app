@@ -6,12 +6,8 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
-import android.content.res.Configuration
-import android.content.res.Resources
 import android.graphics.Typeface
 import android.net.Uri
-import android.os.Build
-import android.os.LocaleList
 import android.provider.MediaStore
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -26,7 +22,6 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.request.CachePolicy
 import com.google.android.material.snackbar.Snackbar
-import ir.mobfix.aleali.R
 import java.text.DecimalFormat
 import java.util.*
 
@@ -142,9 +137,9 @@ fun Uri.openBrowser(context: Context) {
     ContextCompat.startActivity(context, intent, null)
 }
 
-fun ImageView.setTint(@ColorRes color: Int) {
+/*fun ImageView.setTint(@SuppressLint("SupportAnnotationUsage") @ColorRes color: ContextCompat) {
     ImageViewCompat.setImageTintList(this, ColorStateList.valueOf(ContextCompat.getColor(context, color)))
-}
+}*/
 
 fun setTypefaceNormal(context: Context): Typeface {
     return Typeface.createFromAsset(context.assets,"fonts/iransans.ttf")

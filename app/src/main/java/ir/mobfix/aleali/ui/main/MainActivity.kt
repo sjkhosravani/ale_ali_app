@@ -1,11 +1,9 @@
 package ir.mobfix.aleali.ui.main
 
 import android.content.Context
-import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
@@ -14,14 +12,12 @@ import dagger.hilt.android.AndroidEntryPoint
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import ir.mobfix.aleali.R
 import ir.mobfix.aleali.data.stored.LanguageLocal
-import ir.mobfix.aleali.data.stored.StorePerformed
 import ir.mobfix.aleali.databinding.ActivityMainBinding
+import ir.mobfix.aleali.utils.ENGLISH
 import ir.mobfix.aleali.utils.FARSI
 import ir.mobfix.aleali.utils.extensions.setAppLocale
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-import java.util.*
 import javax.inject.Inject
 
 
@@ -30,6 +26,10 @@ class MainActivity : AppCompatActivity() {
     //Binding
     private var _binding: ActivityMainBinding? = null
     private val binding get() = _binding!!
+
+    @Inject
+    lateinit var languageLocal: LanguageLocal
+    private var lang = ""
 
     //Other
     private lateinit var navHost: NavHostFragment
@@ -61,6 +61,20 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        lifecycleScope.launch { lang = languageLocal.getLang().first() }
+        changeLocal()
+
+    }
+
+    private fun changeLocal() {
+        when(lang){
+            FARSI ->{ setAppLocale(this, FARSI)
+            }
+            ENGLISH ->{
+                setAppLocale(this, ENGLISH)
+            }
+        }
+        //recreate()
     }
 
     override fun onNavigateUp(): Boolean {
@@ -71,6 +85,9 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         _binding = null
     }
+
+
+
 
     //Calligraphy
     override fun attachBaseContext(newBase: Context) {

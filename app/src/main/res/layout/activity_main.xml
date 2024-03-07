@@ -23,13 +23,12 @@
         android:layout_height="wrap_content"
         android:paddingVertical="@dimen/_3mdp"
         app:elevation="@dimen/_50mdp"
-        app:itemIconSize="@dimen/_15mdp"
-        app:labelVisibilityMode="selected"
+        app:itemIconSize="@dimen/_13mdp"
+        app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/main_menu"
-        tools:targetApi="p" />
+        app:menu="@menu/main_menu" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
